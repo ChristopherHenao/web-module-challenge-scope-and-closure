@@ -30,10 +30,17 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   1. What is the difference between counter1 and counter2?
   
+  -counter1 nested the count variable and the counter function, while counter2 didn't.
+  
   2. Which of the two uses a closure? How can you tell?
+  
+  -Both, counter1 and counter2. In counter1, the function counter gets count from the parent function. In counter2, the function counter2 gets count from the global scope.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     
+     -
+
 */
 
 // counter1 code
@@ -63,8 +70,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random()*3);
 }
 
 
@@ -82,9 +89,12 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
-}
+function finalScore(callback, inningsPlayed){
+  for(let i = 0; i < inningsPlayed; i++){
+
+  } // for loop closes here
+  
+} // finalScore function closes here
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
