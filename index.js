@@ -90,11 +90,16 @@ Use the finalScore function below to do the following:
 */ 
 
 function finalScore(callback, inningsPlayed){
+  let homeScore = 0;
+  let awayScore = 0;
   for(let i = 0; i < inningsPlayed; i++){
+    homeScore = homeScore + callback();
+    awayScore = awayScore + callback();
+  }                                         // for loop closes here
+return {Home: homeScore, Away: awayScore};  
+}                                           // finalScore function closes here
 
-  } // for loop closes here
-  
-} // finalScore function closes here
+console.log(finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
