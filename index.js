@@ -50,7 +50,7 @@ function counterMaker() {
    return count++;
   }
 }
-
+console.log(counterMaker())
 const counter1 = counterMaker();
 
 // counter2 code
@@ -73,6 +73,7 @@ NOTE: This will be a callback function for the tasks below
 function inning(){
     return Math.floor(Math.random()*3);
 }
+
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -106,9 +107,11 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(callback) {
+  return {Home: callback(), Away: callback()}
 }
+
+console.log(getInningScore(inning))
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -152,10 +155,23 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(callback1, callback2, numberInnings) {
+  let newArray = [];
+  let away = 0;
+  let home = 0;
+  for(let i = 0; i < numberInnings; i++){
+    let var1 = callback1(callback2);
+    away = away + var1.Away;
+    home = home + var1.Home;
+    newArray.push(`Inning ${i + 1}: Away ${var1.Away} - Home ${var1.Home}`);
+  } if(away === home){
+    newArray.push(`This game will require extra innings: Away ${away} - Home ${home}`)
+  } else{
+    newArray.push(`Final Score: Away ${away} - Home ${home}`)
+  }
+return newArray;
 }
-
+console.log(scoreboard(getInningScore, inning, 9));
 
 
 
